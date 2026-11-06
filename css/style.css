@@ -131,7 +131,7 @@ a {
   z-index:-1;
   background:rgba(0,0,0,0);
   backdrop-filter:blur(20px);
-  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 100%, transparent 100%);
 }
 .deskfilo {
 }
@@ -144,10 +144,9 @@ a {
   grid-template-columns: repeat(2, 1fr);
   /*grid-auto-flow: rows;*/
   gap: 8px;
-  columns: 2;
   padding: 6px;
   margin: 6px;
-  outline: 2px solid green;
+  /*outline: 2px solid green;*/
 }
 .card img {
   display: block;
@@ -156,17 +155,30 @@ a {
   object-fit: cover;
   display: block;
   border-radius:14px;
-  outline: 2px solid red;
+  /*outline: 2px solid red;*/
 }
 .card {
-  display: block;
+  display: inline-block;
   position: relative;
   break-inside: avoid;
-  margin-bottom: 12px;
-  overflow: hidden;
+  z-index: 1;
+  margin: 4px;
   border-radius:14px;
-  outline: 2px solid yellow;
+  /*outline: 2px solid yellow;*/
+  box-shadow: 0 0 8px -1px rgba(255, 255, 255, .6);
 }
+/*.card:before {
+  content:"";
+  position: absolute;
+  inset:2px;
+  border-radius: 14px;
+  z-index: -1;
+  filter:blur(10px);
+  background-image: var(--imgbg);
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0,0,0,.45);
+}*/
 .deskproj {
   
   position: absolute;
@@ -187,14 +199,14 @@ a {
   background: linear-gradient(to top, rgba(0,0,0,1), transparent 60%);
   opacity: 0;
   transition: .3s;
+  border-radius: 14px;
 }
 .card.active{
-  grid-column: span 1;
 }
 .card.active:after,
 .card.active .deskproj {opacity:1;}
 @media (min-width: 700px) {
-  .grid { columns:4;} }
+  .grid { grid-template-columns: repeat(3,1fr);} }
 /*display end*/
 
 footer {
